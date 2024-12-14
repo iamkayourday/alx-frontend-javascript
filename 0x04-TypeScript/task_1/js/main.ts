@@ -1,16 +1,16 @@
 // Define the Teacher interface
 interface Teacher {
-    firstName: string;              
-    lastName: string;               
+    firstName: string;               
+    lastName: string;                
     fullTimeEmployee: boolean;      
-    yearsOfExperience?: number;     
-    location: string;               
-    [key: string]: any;             
+    yearsOfExperience?: number;      
+    location: string;                
+    [key: string]: any;              
   }
   
   // Define the Directors interface, which extends Teacher
   interface Directors extends Teacher {
-    numberOfReports: number;       
+    numberOfReports: number;         
   }
   
   // Create an example teacher object
@@ -20,7 +20,7 @@ interface Teacher {
     fullTimeEmployee: true,
     location: 'New Jersey',
     yearsOfExperience: 5,
-    contract: true,
+    contract: true, 
   };
   
   console.log(teacher1);
@@ -35,4 +35,18 @@ interface Teacher {
   };
   
   console.log(director1);
+  
+  // Define the printTeacherFunction interface
+  interface printTeacherFunction {
+    (firstName: string, lastName: string): string;
+  }
+  
+  // Implement the printTeacher function
+  const printTeacher: printTeacherFunction = (firstName, lastName) => {
+    return `${firstName.charAt(0)}. ${lastName}`;
+  };
+  
+  // Example usage of printTeacher function
+  console.log(printTeacher("Hamdah", "Imam"));       // Output: H. Imam
+  console.log(printTeacher("Abdulbasit", "Imam"));  // Output: A. Imam
   
