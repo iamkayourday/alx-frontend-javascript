@@ -2,7 +2,7 @@
 interface Teacher {
     firstName: string;               
     lastName: string;                
-    fullTimeEmployee: boolean;      
+    fullTimeEmployee: boolean;       
     yearsOfExperience?: number;      
     location: string;                
     [key: string]: any;              
@@ -49,4 +49,41 @@ interface Teacher {
   // Example usage of printTeacher function
   console.log(printTeacher("Hamdah", "Imam"));       // Output: H. Imam
   console.log(printTeacher("Abdulbasit", "Imam"));  // Output: A. Imam
+  
+  // Define the interface for the StudentClass constructor
+  interface StudentClassConstructor {
+    firstName: string;
+    lastName: string;
+  }
+  
+  // Define the interface for the StudentClass itself
+  interface StudentClassInterface {
+    workOnHomework(): string;
+    displayName(): string;
+  }
+  
+  // Implement the StudentClass
+  class StudentClass implements StudentClassInterface {
+    firstName: string;
+    lastName: string;
+  
+    constructor({ firstName, lastName }: StudentClassConstructor) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+    }
+  
+    workOnHomework(): string {
+      return "Currently working";
+    }
+  
+    displayName(): string {
+      return this.firstName;
+    }
+  }
+  
+  // Create an example student object
+  const student = new StudentClass({ firstName: 'Abdulbasit', lastName: 'Imam' });
+  
+  console.log(student.displayName());       // Output: Abdulbasit
+  console.log(student.workOnHomework());   // Output: Currently working
   
